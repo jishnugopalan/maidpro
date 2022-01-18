@@ -1,5 +1,5 @@
 <?php
-	include("header.php");
+    include("header.php");
 ?>
 <?php
 $worker_email=$_GET['email'];
@@ -7,21 +7,21 @@ $worker_email=$_GET['email'];
 ?>
 <div class="inner-block">
     <div class="blank">
-    	<h2>Workers</h2>
+        <h2>Workers</h2>
 
-    	<?php
-    	$sql="select * from registration,verification,worker where verification.status=1 and worker.email='$worker_email' and verification.email='$worker_email' and registration.email='$worker_email'";
-    	$res=mysqli_query($conn,$sql);
-    	if(mysqli_num_rows($res)>0){
-    		while ($r=mysqli_fetch_assoc($res)) {
-    	?>
-    	<div class="col-md-12 bg-white text-center">
-    		<a href="viewdetails.php?email=<?php echo $r['email']?>">
-    		<img src="../users/<?php echo $r['profile_pic']?>" width=240 height=360>
-    		<h3><?php echo $r['name']?></h3>
-    		<p>Location:
+        <?php
+        $sql="select * from registration,verification,worker where verification.status=1 and worker.email='$worker_email' and verification.email='$worker_email' and registration.email='$worker_email'";
+        $res=mysqli_query($conn,$sql);
+        if(mysqli_num_rows($res)>0){
+            while ($r=mysqli_fetch_assoc($res)) {
+        ?>
+        <div class="col-md-12 bg-white text-center">
+            <a href="viewdetails.php?email=<?php echo $r['email']?>">
+            <img src="../users/<?php echo $r['profile_pic']?>" width=240 height=360>
+            <h3><?php echo $r['name']?></h3>
+            <p>Location:
 
-    			<?php
+                <?php
                                      $d=$r["district"];
                                      
                                      $s="select district from district where district_id=$d";
@@ -41,9 +41,9 @@ $worker_email=$_GET['email'];
                 <br>
                  
 
-    		</p>
-    	</a>
-    	</div>
+            </p>
+        </a>
+        </div>
         <div class="col-md-6">
             <h2>Job Details</h2>
             <p>Job category:<?php echo $r['category']?><br>
@@ -89,28 +89,47 @@ $worker_email=$_GET['email'];
         </div>
         <div class="clearfix"></div>
 
-    	<?php
-    			// code...
-    		}
-    	}
-    	else{
-    	?>
+        <?php
+                // code...
+            }
+        }
+        else{
+        ?>
 
-    	<h3 class="text-center">No workers found</h3>
+        <h3 class="text-center">No workers found</h3>
 
-    	<?php
-    	}
+        <?php
+        }
 
-    	?>
-<div class="col-md-12 text-center">
+        ?>
+
+
     <br>
-        <button class="btn btn-primary">Book Now</button>
+    <?php 
+    if($email!=$worker_email){
+
     
-</div>
-    	
+    ?>
+    <form>
+        <div class="col-md-6">
+        <label>Explain Your needs</label>
+        <input type="text" class="form-control" name="needs" style="height: 100px;" required="">
+        <button class="btn btn-primary">Send Request</button>
+
+    </div>
+        
+    </form>
+    <?php
+}
+    ?>
+    
+    
+
+<div class="clearfix"></div>
+        
     </div>
 </div>
 
 <?php
-	include("footer.php");
+    include("footer.php");
 ?>

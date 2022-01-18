@@ -102,11 +102,30 @@ $worker_email=$_GET['email'];
     	}
 
     	?>
-<div class="col-md-12 text-center">
+
+
     <br>
-        <button class="btn btn-primary">Book Now</button>
+    <?php 
+    if($email!=$worker_email){
+
     
-</div>
+    ?>
+    <form>
+        <div class="col-md-6">
+        <label>Explain Your needs</label>
+        <input type="text" class="form-control" name="needs" style="height: 100px;" required="">
+        <button class="btn btn-primary">Send Request</button>
+
+    </div>
+        
+    </form>
+    <?php
+}
+    ?>
+    
+    
+
+<div class="clearfix"></div>
     	
     </div>
 </div>
