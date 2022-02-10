@@ -124,7 +124,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<div class="clearfix"> </div>
 						 </div>
 						 <div class="header-right">
-   <a class="btn btn-primary" href="register.php">Register Now</a>
+   <a class="btn btn-primary" href="register.php?seeker=<?php echo false?>">Register Users</a>
+   <a class="btn btn-primary" href="register.php?seeker=<?php echo true?>">Register Seekers</a>
+
    <a class="btn btn-primary" href="login.php">Login</a>
 
 

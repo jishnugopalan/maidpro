@@ -3,6 +3,9 @@ Author URL: http://w3layouts.com
 License: Creative Commons Attribution 3.0 Unported
 License URL: http://creativecommons.org/licenses/by/3.0/
 -->
+<?php
+$seeker=$_GET["seeker"];
+?>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -52,6 +55,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			</div>
 			<div class="signup-block">
 				<form action="adduser.php" method="POST">
+					<input type="hidden" name="seeker" value="<?php echo $seeker?>">
 					<input type="text" name="username" placeholder="Name" required="" id="username">
 					<input type="text" pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$" name="email" placeholder="Email" required="" onchange="getEmail(this.value)" id="email">
 					<div id="showresult" style="color:red;"></div>

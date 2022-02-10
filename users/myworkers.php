@@ -75,7 +75,7 @@
      if($r['request_status']==1){
      ?>
      	<h4 style="color:green;">Accepted</h4>
-     	<a href="" class="btn btn-primary">Chat now</a>
+     	<a href="chat.php?userid=<?php echo $r['workerid']?>&&username=<?php echo $r1['name']?>" class="btn btn-primary">Chat now</a>
      	<a href="" class="btn btn-primary">View Bill</a>
      	<a href="" class="btn btn-primary">Cancel Work</a>
 

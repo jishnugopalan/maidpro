@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 18, 2022 at 06:12 PM
+-- Generation Time: Feb 10, 2022 at 08:01 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.1
 
@@ -41,7 +41,8 @@ CREATE TABLE `bank_account` (
 --
 
 INSERT INTO `bank_account` (`bank_account_id`, `email`, `ac_holder_name`, `ac_no`, `ifsc`, `bank_name`) VALUES
-(2, 'jishnu123@gmail.com', 'Jishnu Gopalan', 2147483647, 'sbin0070149', 'sbi');
+(2, 'jishnu123@gmail.com', 'Jishnu Gopalan', 2147483647, 'sbin0070149', 'sbi'),
+(3, 'abc@gmail.com', 'Jishnu Gopalan', 2147483647, 'sbin0070149', 'sbi');
 
 -- --------------------------------------------------------
 
@@ -104,34 +105,8 @@ CREATE TABLE `login` (
 INSERT INTO `login` (`login_id`, `email`, `usertype`) VALUES
 (2, 'jishnu123@gmail.com', 'worker'),
 (3, 'admin123@gmail.com', 'admin'),
-(4, 'jishnugopalan2000@gmail.com', 'user');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `notification`
---
-
-CREATE TABLE `notification` (
-  `notification_id` int(11) NOT NULL,
-  `senderid` varchar(30) NOT NULL,
-  `receiverid` varchar(30) NOT NULL,
-  `content` varchar(70) NOT NULL,
-  `notification_datetime` timestamp NOT NULL DEFAULT current_timestamp(),
-  `notification_type` varchar(25) NOT NULL DEFAULT 'normal'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `notification`
---
-
-INSERT INTO `notification` (`notification_id`, `senderid`, `receiverid`, `content`, `notification_datetime`, `notification_type`) VALUES
-(1, 'jishnugopalan2000@gmail.com', 'jishnu123@gmail.com', 'Jishnu sends a request.Do you want to accept', '2022-01-18 12:40:46', 'request'),
-(2, 'jishnu123@gmail.com', 'jishnugopalan2000@gmail.com', 'Congratulations!Jishnu Gopalan accepted your request', '2022-01-18 14:55:55', 'accepted'),
-(3, 'jishnu123@gmail.com', 'jishnugopalan2000@gmail.com', 'Congratulations!Jishnu Gopalan accepted your request', '2022-01-18 14:56:32', 'accepted'),
-(4, 'jishnu123@gmail.com', 'jishnugopalan2000@gmail.com', 'Congratulations!Jishnu Gopalan accepted your request', '2022-01-18 14:56:36', 'accepted'),
-(5, 'jishnu123@gmail.com', 'jishnugopalan2000@gmail.com', 'Sorry!Jishnu Gopalan rejected your request', '2022-01-18 14:57:58', 'rejected'),
-(6, 'jishnu123@gmail.com', 'jishnugopalan2000@gmail.com', 'Congratulations!Jishnu Gopalan accepted your request', '2022-01-18 15:25:00', 'accepted');
+(4, 'jishnugopalan2000@gmail.com', 'user'),
+(5, 'abc@gmail.com', 'user');
 
 -- --------------------------------------------------------
 
@@ -160,29 +135,8 @@ CREATE TABLE `registration` (
 
 INSERT INTO `registration` (`user_id`, `email`, `name`, `phone`, `profile_pic`, `house`, `place`, `district`, `state`, `pincode`, `gender`, `date_of_birth`) VALUES
 (2, 'jishnu123@gmail.com', 'Jishnu Gopalan', 7994245510, 'images/profile_pic.png', 'Kochukudiputhenpura', 'Kuthukuzhy', '1', '1', 686691, 'Male', '1999-04-29'),
-(3, 'jishnugopalan2000@gmail.com', 'Jishnu', 7994245510, 'images/profile_pic.png', '', '', '', '', 0, '', '');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `request`
---
-
-CREATE TABLE `request` (
-  `request_id` int(11) NOT NULL,
-  `userid` varchar(30) NOT NULL,
-  `workerid` varchar(30) NOT NULL,
-  `needs` text NOT NULL,
-  `request_datetime` timestamp NOT NULL DEFAULT current_timestamp(),
-  `request_status` tinyint(4) NOT NULL DEFAULT 0
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `request`
---
-
-INSERT INTO `request` (`request_id`, `userid`, `workerid`, `needs`, `request_datetime`, `request_status`) VALUES
-(3, 'jishnugopalan2000@gmail.com', 'jishnu123@gmail.com', 'We need a part time worker in our company', '2022-01-18 12:40:46', 1);
+(3, 'jishnugopalan2000@gmail.com', 'Jishnu', 7994245510, 'images/profile_pic.png', '', '', '', '', 0, '', ''),
+(4, 'abc@gmail.com', 'abc', 7994245510, 'images/profile_pic.png', 'sdas', 'asdas', '1', '1', 686691, 'Male', '2022-02-11');
 
 -- --------------------------------------------------------
 
@@ -222,7 +176,8 @@ CREATE TABLE `verification` (
 --
 
 INSERT INTO `verification` (`verification_id`, `email`, `verification_type`, `document`, `status`) VALUES
-(2, 'jishnu123@gmail.com', 'Adhaar Card', 'uploads/adhar demo.png', 1);
+(2, 'jishnu123@gmail.com', 'Adhaar Card', 'uploads/adhar demo.png', 1),
+(3, 'abc@gmail.com', 'Adhaar Card', 'users/uploads/adhar demo.png', 0);
 
 -- --------------------------------------------------------
 
@@ -246,7 +201,8 @@ CREATE TABLE `worker` (
 --
 
 INSERT INTO `worker` (`worker_id`, `email`, `category`, `service_charge`, `starting_time`, `ending_time`, `description`, `experience`) VALUES
-(1, 'jishnu123@gmail.com', 'Cleaning', 1500, '10:00:00', '17:00:00', 'I am an experienced person.', 2);
+(1, 'jishnu123@gmail.com', 'Cleaning', 1500, '10:00:00', '17:00:00', 'I am an experienced person.', 2),
+(2, 'abc@gmail.com', 'Painting', 6000, '13:30', '01:30', 'asdasd', 2);
 
 --
 -- Indexes for dumped tables
@@ -278,22 +234,10 @@ ALTER TABLE `login`
   ADD UNIQUE KEY `email` (`email`);
 
 --
--- Indexes for table `notification`
---
-ALTER TABLE `notification`
-  ADD PRIMARY KEY (`notification_id`);
-
---
 -- Indexes for table `registration`
 --
 ALTER TABLE `registration`
   ADD PRIMARY KEY (`user_id`);
-
---
--- Indexes for table `request`
---
-ALTER TABLE `request`
-  ADD PRIMARY KEY (`request_id`);
 
 --
 -- Indexes for table `state`
@@ -321,7 +265,7 @@ ALTER TABLE `worker`
 -- AUTO_INCREMENT for table `bank_account`
 --
 ALTER TABLE `bank_account`
-  MODIFY `bank_account_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `bank_account_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `category`
@@ -339,25 +283,13 @@ ALTER TABLE `district`
 -- AUTO_INCREMENT for table `login`
 --
 ALTER TABLE `login`
-  MODIFY `login_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
---
--- AUTO_INCREMENT for table `notification`
---
-ALTER TABLE `notification`
-  MODIFY `notification_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `login_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `registration`
 --
 ALTER TABLE `registration`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
---
--- AUTO_INCREMENT for table `request`
---
-ALTER TABLE `request`
-  MODIFY `request_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `state`
@@ -369,13 +301,13 @@ ALTER TABLE `state`
 -- AUTO_INCREMENT for table `verification`
 --
 ALTER TABLE `verification`
-  MODIFY `verification_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `verification_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `worker`
 --
 ALTER TABLE `worker`
-  MODIFY `worker_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `worker_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

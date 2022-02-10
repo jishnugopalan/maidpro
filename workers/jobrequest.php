@@ -64,7 +64,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+       
       </div>
     </div>
   </div>
@@ -80,8 +80,8 @@
      if($r['request_status']==1){
      ?>
      	<h4 style="color:green;">Accepted</h4>
-     	<a href="" class="btn btn-primary">Chat now</a>
-     	<a href="" class="btn btn-primary">Send Bill</a>
+     	<a href="chat.php?userid=<?php echo $r['userid']?> && username=<?php echo $r1['name']?>" class="btn btn-primary">Chat now</a>
+     	<a href="sendbill.php?request_id=<?php echo $r['request_id']?> && user_id=<?php echo $r['userid']?> " class="btn btn-primary">Create Bill</a>
      	<a href="" class="btn btn-primary">Marked as Completed</a>
 
 

@@ -3,6 +3,7 @@ $username=$_POST["username"];
 $email=$_POST["email"];
 $phone=$_POST["phone"];
 $password=$_POST["password"];
+$seeker=$_POST['seeker'];
 ?>
 <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-app.js"></script>
 
@@ -33,6 +34,7 @@ phoneSignin();
     var email='<?php echo $email?>'
     var phone='<?php echo $phone?>'
     var password='<?php echo $password?>'
+    var seeker='<?php echo $seeker?>'
     // var usertype=document.getElementById("usertype").value
     $.ajax({
     	type:"POST",
@@ -41,13 +43,20 @@ phoneSignin();
 					n:name,
 					e:email,
 					ph:phone,
+          
 					
 					
 				},
 				success: function(data){
 		console.log(data)
-		
-		window.location.replace("login.php")
+		if(seeker==1){
+      alert("seeker")
+      window.location.replace("adminverification.php?email=<?php echo $email?>")
+    }
+    else{
+        window.location.replace("login.php")
+    }
+	
 	}
 
     })
