@@ -184,13 +184,10 @@ $res2=mysqli_query($conn,$sql2);
 	<label>Job Category</label>
 	<select class="form-control" name="job_category" required="">
 		<option value disabled selected>Select a category</option>
-<?php
-foreach($res2 as $cat) {
-?>
-<option value="<?php echo $cat["category"]; ?>"><?php echo $cat["category"]; ?></option>
-<?php
-}
-?>
+    <option value="Cleaning">Cleaning</option>
+    <option value="Cooking">Cooking</option>
+    <option value="Baby Sitter">Baby Sitter</option>
+    <option value="Elderly Care">Elderly Care</option>
 	</select>
 </div>
 <div class="col-md-4">

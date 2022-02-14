@@ -80,7 +80,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				</form>
 				<div class="sign-down">
 				<h4>Already have an account? <a href="login.php"> Login here.</a></h4>
-				  <h5><a href="index.php">Go Back to Home</a></h5>
+				  <h5><a href="new/index.php">Go Back to Home</a></h5>
 				</div>
 			</div>
     </div>

@@ -16,6 +16,11 @@ $sql2="insert into request(userid,workerid,needs)values('$user_email','$worker_e
 $sql3="insert into notification(senderid,receiverid,content,notification_type)values('$user_email','$worker_email','$name send a request.Do you want to accept?','request')";
 if(mysqli_query($conn,$sql2) && mysqli_query($conn,$sql3)){
 
-	echo "Request send successfully";
+	?>
+	<script type="text/javascript">
+		alert("Request send successfully")
+		window.location.replace("myworkers.php")
+	</script>
+	<?php
 }
 ?>

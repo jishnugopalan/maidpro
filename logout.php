@@ -4,11 +4,19 @@ include"dbconn.php";
 $id=$_SESSION["email"];
 if(isset($_SESSION['email'])){
 	session_destroy();
-include('index.php');
+?>
+<script type="text/javascript">
+	window.location.replace("new/index.php")
+</script>
+<?php
 
 }
 else{
-	include('index.php');
+	?>
+<script type="text/javascript">
+	window.location.replace("new/index.php")
+</script>
+<?php
 }
 
 

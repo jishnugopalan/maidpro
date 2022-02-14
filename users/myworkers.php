@@ -32,9 +32,12 @@
                                 <div class="clearfix"></div>
     <p><?php echo $r['needs']?></p>
     <!-- user details -->
-    <a href="" data-toggle="modal" data-target="#exampleModalCenter">
+    <a href="viewdetails.php?email=<?php echo $r['workerid']?>">
   View Worker Details
 </a>
+    <!-- <a href="" data-toggle="modal" data-target="#exampleModalCenter">
+  View Worker Details
+</a> -->
 
 <!-- Modal -->
 <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -76,9 +79,8 @@
      ?>
      	<h4 style="color:green;">Accepted</h4>
      	<a href="chat.php?userid=<?php echo $r['workerid']?>&&username=<?php echo $r1['name']?>" class="btn btn-primary">Chat now</a>
-     	<a href="" class="btn btn-primary">View Bill</a>
-     	<a href="" class="btn btn-primary">Cancel Work</a>
-
+     	<a href="viewbill.php?requestid=<?php echo $r['request_id']?>" class="btn btn-primary">View Bill</a>
+  
 
 
      <?php
@@ -93,6 +95,17 @@
      if($r['request_status']==0){
      ?>
       <h4 style="color:red;">Not Accepted</h4>
+
+      
+     <?php
+     }
+    ?>
+     <?php
+     
+     if($r['request_status']==3){
+     ?>
+      <h4 style="color:green;">Completed</h4>
+      <a href="addreview.php?workerid=<?php echo $r['workerid']?> " class="btn btn-primary">Add Review</a>
 
       
      <?php

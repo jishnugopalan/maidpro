@@ -17,7 +17,7 @@ $category=$_GET['category'];
     	?>
     	<div class="col-md-4 bg-white">
     		<a href="viewdetails.php?email=<?php echo $r['email']?>">
-    		<img src="../users/<?php echo $r['profile_pic']?>" width=240 height=360>
+    		<img src="../users/<?php echo $r['profile_pic']?>" width=240>
     		<h3><?php echo $r['name']?></h3>
     		<p>Location:
 

@@ -17,7 +17,7 @@ $worker_email=$_GET['email'];
         ?>
         <div class="col-md-12 bg-white text-center">
             <a href="viewdetails.php?email=<?php echo $r['email']?>">
-            <img src="../users/<?php echo $r['profile_pic']?>" width=240 height=360>
+            <img src="../users/<?php echo $r['profile_pic']?>" width=240>
             <h3><?php echo $r['name']?></h3>
             <p>Location:
 
@@ -110,9 +110,10 @@ $worker_email=$_GET['email'];
 
     
     ?>
-    <form>
+    <form method="POST" action="sendrequest.php">
         <div class="col-md-6">
         <label>Explain Your needs</label>
+        <input type="hidden" name="worker_email" value="<?php echo $worker_email?>">
         <input type="text" class="form-control" name="needs" style="height: 100px;" required="">
         <button class="btn btn-primary">Send Request</button>
 
@@ -126,10 +127,41 @@ $worker_email=$_GET['email'];
     
 
 <div class="clearfix"></div>
-        
-    </div>
-</div>
+<h3>Review</h3>
+<?php
+$sql3="select * from review where workerid='$worker_email'";
+$res=mysqli_query($conn,$sql3);
+if(mysqli_num_rows($res)>0){
+    while($r3=mysqli_fetch_assoc($res)){
+        $userid=$r3['userid'];
+       
+        $sql4="select * from registration where email='$userid'";
+        $r4=mysqli_fetch_assoc(mysqli_query($conn,$sql4));
+?>
+<div class="col-md-6">
 
+   <div class="profile_img">  
+                                    <span class="prfil-img"><img style="width:30%,vertical-align: middle;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;" src="../users/<?php echo $r4['profile_pic']?>" alt=""> </span> 
+                                    <div class="user-name">
+                                        <?php echo $r4['name'] ?>
+    <p><?php echo $r3['review']?></p>
+</div>
+   </div>
+</div>
+<div class="clearfix"></div>
+<?php
+    }
+}
+
+?>
+        
+ 
+</div>
+</div>
+<div class="clearfix"></div>
 <?php
     include("footer.php");
 ?>

@@ -72,7 +72,7 @@
             </td>
             <td>
             	<a class="btn btn-success" href="approve.php?email=<?php echo $r['email']?>">Approve</a>
-            	<a class="btn btn-danger">Reject</a>
+            	<a class="btn btn-danger" href="reject.php?email=<?php echo $r['email']?>">Reject</a>
             </td>
         </tr>
     	<?php

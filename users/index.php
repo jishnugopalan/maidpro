@@ -5,26 +5,51 @@
 <div class="inner-block">
     <div class="blank">
     	<h2>Services</h2>
+<div class="col-md-4">
+	<a href="viewworkers.php?category=Cleaning"><div class="card"  style="width: 18rem;">
+  <img class="card-img-top" src="../new/images/cleaning.jpeg" alt="Card image cap" width="340px">
+  <div class="card-body">
+    <h3 class="card-title text-center">Cleaning</h3>
+    
+  </div>
+</div></a>
+</div>
+ <div class="col-md-4"> 	
 
-    	<?php
-    	$sql="select * from category";
-    	$res=mysqli_query($conn,$sql);
-    	if(mysqli_num_rows($res)>0){
-    		while ($r=mysqli_fetch_assoc($res)) {
-    	?>
-    	<div class="col-md-4">
-    		<a href="viewworkers.php?category=<?php echo $r['category']?>">
-    		<img src="../admin/<?php echo $r['category_image']?>" class="img-thumbnail">
-    		<h3><?php echo $r['category']?></h3>
-    	</a>
-    	</div>
+ <a href="viewworkers.php?category=Cooking"><div class="card"  style="width: 18rem;">
+  <img class="card-img-top" src="../new/images/cooking.jpeg" alt="Card image cap" width="340px">
+  <div class="card-body">
+    <h3 class="card-title text-center">Cooking</h3>
+    
+  </div>
+</div></a>
+</div>
 
-    	<?php
-    			// code...
-    		}
-    	}
+ <div class="col-md-4"> 	
 
-    	?>
+ <a href="viewworkers.php?category=Baby Sitter"><div class="card"  style="width: 18rem;">
+  <img class="card-img-top" src="../new/images/child.jpg" alt="Card image cap" width="340px">
+  <div class="card-body">
+    <h3 class="card-title text-center">Baby Sitter</h3>
+    
+  </div>
+</div></a>
+</div>
+
+<div class="col-md-4"> 	
+
+ <a href="viewworkers.php?category=Elderly Care"><div class="card"  style="width: 18rem;">
+  <img class="card-img-top" src="../new/images/elder.jpg" alt="Card image cap" width="340px">
+  <div class="card-body">
+    <h3 class="card-title text-center">Elderly Care</h3>
+    
+  </div>
+</div></a>
+</div>
+
+
+
+
     	
     </div>
 </div>
