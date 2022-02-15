@@ -13,9 +13,8 @@
     	<table class="table">
     		<thead>
     			<tr>
-    		<th>From Date</th>
-    		<th>To Date</th>
-    		<th>Total Service Charge</th>
+    	
+    		<th>Total Service Charge+20% Administration Fee</th>
     		<th>Created Date</th>
     		<th>Bill Status</th>
     	</tr>
@@ -28,8 +27,7 @@ if(mysqli_num_rows($res2)>0){
 	while($r2=mysqli_fetch_assoc($res2)){
 ?>
 <tr>
-	<td><?php echo $r2['fromdate']?></td>
-<td><?php echo $r2['todate']?></td>
+	
 <td><?php echo $r2['rate']?></td>
 <td><?php echo $r2['datetime']?></td>
 <td>

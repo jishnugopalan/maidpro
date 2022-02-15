@@ -10,8 +10,8 @@
 		        <li id="menu-home" ><a href="jobrequest.php"><i class="fa fa-briefcase"></i><span>My Jobs</span></a></li>
 		       <!--  <li id="menu-home" ><a href="#"><i class="fa fa-ticket"></i><span>Add Complaints</span></a></li> -->
 		        <li id="menu-home" ><a href="addfeedback.php"><i class="fa fa-commenting-o"></i><span>Add Feedbacks</span></a></li>
-		         <li id="menu-home" ><a href="index.php"><i class="fa fa-info-circle" aria-hidden="true"></i><span>About us</span></a></li>
-		          <li id="menu-home" ><a href="index.php"><i class="fa fa-phone-square" aria-hidden="true"></i><span>Contact us</span></a></li>
+		         <li id="menu-home" ><a href="about.php"><i class="fa fa-info-circle" aria-hidden="true"></i><span>About us</span></a></li>
+		          <li id="menu-home" ><a href="contact.php"><i class="fa fa-phone-square" aria-hidden="true"></i><span>Contact us</span></a></li>
 		      </ul>
 		    </div>
 	 </div>

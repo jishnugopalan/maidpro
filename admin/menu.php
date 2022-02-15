@@ -8,8 +8,8 @@
 		        <!-- <li id="menu-home" ><a href="addcategory.php"><i class="fa fa-plus-circle"></i><span>Add Category</span></a></li> -->
 		        <li id="menu-home" ><a href="viewworkers.php"><i class="fa fa-check"></i><span>Approve Workers</span></a></li>
 		          <li id="menu-home" ><a href="viewfeedback.php"><i class="fa fa-commenting-o"></i><span>View Feedbacks</span></a></li>
-		           <li id="menu-home" ><a href="index.php"><i class="fa fa-info-circle" aria-hidden="true"></i><span>About us</span></a></li>
-		          <li id="menu-home" ><a href="index.php"><i class="fa fa-phone-square" aria-hidden="true"></i><span>Contact us</span></a></li>
+		           <li id="menu-home" ><a href="about.php"><i class="fa fa-info-circle" aria-hidden="true"></i><span>About us</span></a></li>
+		          <li id="menu-home" ><a href="contact.php"><i class="fa fa-phone-square" aria-hidden="true"></i><span>Contact us</span></a></li>
 		        
 		      </ul>
 		    </div>

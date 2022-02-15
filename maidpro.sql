@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 10, 2022 at 08:01 PM
+-- Generation Time: Feb 15, 2022 at 05:39 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.1
 
@@ -47,6 +47,30 @@ INSERT INTO `bank_account` (`bank_account_id`, `email`, `ac_holder_name`, `ac_no
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `bill`
+--
+
+CREATE TABLE `bill` (
+  `bill_id` int(11) NOT NULL,
+  `request_id` int(11) NOT NULL,
+  `userid` varchar(35) NOT NULL,
+  `workerid` varchar(35) NOT NULL,
+  `rate` int(12) NOT NULL,
+  `datetime` timestamp NOT NULL DEFAULT current_timestamp(),
+  `bill_status` tinyint(1) NOT NULL DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `bill`
+--
+
+INSERT INTO `bill` (`bill_id`, `request_id`, `userid`, `workerid`, `rate`, `datetime`, `bill_status`) VALUES
+(7, 6, 'jishnugopalan2000@gmail.com', 'jishnu123@gmail.com', 1500, '2022-02-14 17:57:31', 0),
+(8, 6, 'jishnugopalan2000@gmail.com', 'jishnu123@gmail.com', 1800, '2022-02-15 16:35:53', 1);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `category`
 --
 
@@ -64,6 +88,29 @@ INSERT INTO `category` (`category_id`, `category`, `category_image`) VALUES
 (1, 'Painting', 'uploads/painting.jpg'),
 (2, 'Cleaning', 'uploads/cleaning.jpg'),
 (3, 'Cooking', 'uploads/cooking.jpg');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `chat`
+--
+
+CREATE TABLE `chat` (
+  `chat_id` int(11) NOT NULL,
+  `sender_email` varchar(50) NOT NULL,
+  `reciever_email` varchar(50) NOT NULL,
+  `message` text NOT NULL,
+  `chat_time` timestamp NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `chat`
+--
+
+INSERT INTO `chat` (`chat_id`, `sender_email`, `reciever_email`, `message`, `chat_time`) VALUES
+(0, 'jishnu123@gmail.com', 'jishnugopalan2000@gmail.com ', 'hi', '2022-02-10 18:21:59'),
+(0, 'jishnugopalan2000@gmail.com', 'jishnu123@gmail.com', 'hello', '2022-02-10 18:30:10'),
+(0, 'jishnugopalan2000@gmail.com', 'jishnu123@gmail.com', 'hi', '2022-02-13 07:03:28');
 
 -- --------------------------------------------------------
 
@@ -89,6 +136,26 @@ INSERT INTO `district` (`district_id`, `state_id`, `district`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `feedbacks`
+--
+
+CREATE TABLE `feedbacks` (
+  `feedback_id` int(11) NOT NULL,
+  `email` varchar(35) NOT NULL,
+  `feedback` varchar(90) NOT NULL,
+  `feedbacktime` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `feedbacks`
+--
+
+INSERT INTO `feedbacks` (`feedback_id`, `email`, `feedback`, `feedbacktime`) VALUES
+(1, 'jishnugopalan2000@gmail.com', 'asas', '2022-02-14 18:08:00');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `login`
 --
 
@@ -106,7 +173,62 @@ INSERT INTO `login` (`login_id`, `email`, `usertype`) VALUES
 (2, 'jishnu123@gmail.com', 'worker'),
 (3, 'admin123@gmail.com', 'admin'),
 (4, 'jishnugopalan2000@gmail.com', 'user'),
-(5, 'abc@gmail.com', 'user');
+(5, 'abc@gmail.com', 'notuser');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `notification`
+--
+
+CREATE TABLE `notification` (
+  `notification_id` int(11) NOT NULL,
+  `senderid` varchar(30) NOT NULL,
+  `receiverid` varchar(30) NOT NULL,
+  `content` varchar(70) NOT NULL,
+  `notification_datetime` timestamp NOT NULL DEFAULT current_timestamp(),
+  `notification_type` varchar(25) NOT NULL DEFAULT 'normal'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `notification`
+--
+
+INSERT INTO `notification` (`notification_id`, `senderid`, `receiverid`, `content`, `notification_datetime`, `notification_type`) VALUES
+(1, 'jishnugopalan2000@gmail.com', 'jishnu123@gmail.com', 'Jishnu sends a request.Do you want to accept', '2022-01-18 12:40:46', 'request'),
+(2, 'jishnu123@gmail.com', 'jishnugopalan2000@gmail.com', 'Congratulations!Jishnu Gopalan accepted your request', '2022-01-18 14:55:55', 'accepted'),
+(3, 'jishnu123@gmail.com', 'jishnugopalan2000@gmail.com', 'Congratulations!Jishnu Gopalan accepted your request', '2022-01-18 14:56:32', 'accepted'),
+(4, 'jishnu123@gmail.com', 'jishnugopalan2000@gmail.com', 'Congratulations!Jishnu Gopalan accepted your request', '2022-01-18 14:56:36', 'accepted'),
+(5, 'jishnu123@gmail.com', 'jishnugopalan2000@gmail.com', 'Sorry!Jishnu Gopalan rejected your request', '2022-01-18 14:57:58', 'rejected'),
+(6, 'jishnu123@gmail.com', 'jishnugopalan2000@gmail.com', 'Congratulations!Jishnu Gopalan accepted your request', '2022-01-18 15:25:00', 'accepted'),
+(7, 'jishnugopalan2000@gmail.com', '', 'Jishnu send a request.Do you want to accept?', '2022-02-13 06:17:57', 'request'),
+(8, 'jishnugopalan2000@gmail.com', '', 'Jishnu send a request.Do you want to accept?', '2022-02-13 06:19:39', 'request'),
+(9, 'jishnugopalan2000@gmail.com', 'jishnu123@gmail.com', 'Jishnu send a request.Do you want to accept?', '2022-02-13 06:19:45', 'request'),
+(10, 'jishnugopalan2000@gmail.com', 'jishnu123@gmail.com', 'Jishnu send a request.Do you want to accept?', '2022-02-13 06:21:05', 'request'),
+(11, 'jishnu123@gmail.com', 'jishnugopalan2000@gmail.com', 'Congratulations!Jishnu Gopalan accepted your request', '2022-02-13 06:49:42', 'accepted');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `payment`
+--
+
+CREATE TABLE `payment` (
+  `payment_id` int(11) NOT NULL,
+  `bill_id` int(11) NOT NULL,
+  `workerid` varchar(35) NOT NULL,
+  `userid` varchar(35) NOT NULL,
+  `payment` int(12) NOT NULL,
+  `paymentdate` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `payment`
+--
+
+INSERT INTO `payment` (`payment_id`, `bill_id`, `workerid`, `userid`, `payment`, `paymentdate`) VALUES
+(1, 5, 'jishnu123@gmail.com', 'jishnugopalan2000@gmail.com', 10500, '2022-02-13 13:55:43'),
+(2, 8, 'jishnu123@gmail.com', 'jishnugopalan2000@gmail.com', 1800, '2022-02-15 16:36:29');
 
 -- --------------------------------------------------------
 
@@ -137,6 +259,49 @@ INSERT INTO `registration` (`user_id`, `email`, `name`, `phone`, `profile_pic`, 
 (2, 'jishnu123@gmail.com', 'Jishnu Gopalan', 7994245510, 'images/profile_pic.png', 'Kochukudiputhenpura', 'Kuthukuzhy', '1', '1', 686691, 'Male', '1999-04-29'),
 (3, 'jishnugopalan2000@gmail.com', 'Jishnu', 7994245510, 'images/profile_pic.png', '', '', '', '', 0, '', ''),
 (4, 'abc@gmail.com', 'abc', 7994245510, 'images/profile_pic.png', 'sdas', 'asdas', '1', '1', 686691, 'Male', '2022-02-11');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `request`
+--
+
+CREATE TABLE `request` (
+  `request_id` int(11) NOT NULL,
+  `userid` varchar(30) NOT NULL,
+  `workerid` varchar(30) NOT NULL,
+  `needs` text NOT NULL,
+  `request_datetime` timestamp NOT NULL DEFAULT current_timestamp(),
+  `request_status` tinyint(4) NOT NULL DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `request`
+--
+
+INSERT INTO `request` (`request_id`, `userid`, `workerid`, `needs`, `request_datetime`, `request_status`) VALUES
+(6, 'jishnugopalan2000@gmail.com', 'jishnu123@gmail.com', 'fsdf', '2022-02-13 06:19:45', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `review`
+--
+
+CREATE TABLE `review` (
+  `review_id` int(11) NOT NULL,
+  `workerid` varchar(35) NOT NULL,
+  `userid` varchar(35) NOT NULL,
+  `review` varchar(80) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `review`
+--
+
+INSERT INTO `review` (`review_id`, `workerid`, `userid`, `review`) VALUES
+(1, 'jishnu123@gmail.com', 'jishnugopalan2000@gmail.com', 'saasa'),
+(2, 'jishnu123@gmail.com', 'jishnugopalan2000@gmail.com', 'assaas');
 
 -- --------------------------------------------------------
 
@@ -177,7 +342,7 @@ CREATE TABLE `verification` (
 
 INSERT INTO `verification` (`verification_id`, `email`, `verification_type`, `document`, `status`) VALUES
 (2, 'jishnu123@gmail.com', 'Adhaar Card', 'uploads/adhar demo.png', 1),
-(3, 'abc@gmail.com', 'Adhaar Card', 'users/uploads/adhar demo.png', 0);
+(3, 'abc@gmail.com', 'Adhaar Card', 'users/uploads/adhar demo.png', 2);
 
 -- --------------------------------------------------------
 
@@ -215,6 +380,12 @@ ALTER TABLE `bank_account`
   ADD PRIMARY KEY (`bank_account_id`);
 
 --
+-- Indexes for table `bill`
+--
+ALTER TABLE `bill`
+  ADD PRIMARY KEY (`bill_id`);
+
+--
 -- Indexes for table `category`
 --
 ALTER TABLE `category`
@@ -227,6 +398,12 @@ ALTER TABLE `district`
   ADD PRIMARY KEY (`district_id`);
 
 --
+-- Indexes for table `feedbacks`
+--
+ALTER TABLE `feedbacks`
+  ADD PRIMARY KEY (`feedback_id`);
+
+--
 -- Indexes for table `login`
 --
 ALTER TABLE `login`
@@ -234,10 +411,34 @@ ALTER TABLE `login`
   ADD UNIQUE KEY `email` (`email`);
 
 --
+-- Indexes for table `notification`
+--
+ALTER TABLE `notification`
+  ADD PRIMARY KEY (`notification_id`);
+
+--
+-- Indexes for table `payment`
+--
+ALTER TABLE `payment`
+  ADD PRIMARY KEY (`payment_id`);
+
+--
 -- Indexes for table `registration`
 --
 ALTER TABLE `registration`
   ADD PRIMARY KEY (`user_id`);
+
+--
+-- Indexes for table `request`
+--
+ALTER TABLE `request`
+  ADD PRIMARY KEY (`request_id`);
+
+--
+-- Indexes for table `review`
+--
+ALTER TABLE `review`
+  ADD PRIMARY KEY (`review_id`);
 
 --
 -- Indexes for table `state`
@@ -268,6 +469,12 @@ ALTER TABLE `bank_account`
   MODIFY `bank_account_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
+-- AUTO_INCREMENT for table `bill`
+--
+ALTER TABLE `bill`
+  MODIFY `bill_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
 -- AUTO_INCREMENT for table `category`
 --
 ALTER TABLE `category`
@@ -280,16 +487,46 @@ ALTER TABLE `district`
   MODIFY `district_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
+-- AUTO_INCREMENT for table `feedbacks`
+--
+ALTER TABLE `feedbacks`
+  MODIFY `feedback_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `login`
 --
 ALTER TABLE `login`
   MODIFY `login_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
+-- AUTO_INCREMENT for table `notification`
+--
+ALTER TABLE `notification`
+  MODIFY `notification_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
+--
+-- AUTO_INCREMENT for table `payment`
+--
+ALTER TABLE `payment`
+  MODIFY `payment_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT for table `registration`
 --
 ALTER TABLE `registration`
   MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `request`
+--
+ALTER TABLE `request`
+  MODIFY `request_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT for table `review`
+--
+ALTER TABLE `review`
+  MODIFY `review_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `state`

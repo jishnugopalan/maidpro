@@ -47,11 +47,12 @@ $sql="select service_charge from worker where email='$email'";
 $res=mysqli_query($conn,$sql);
 $r=mysqli_fetch_assoc($res);
 
-$sc=$r['service_charge'];
+$sc=$r['service_charge']+$r['service_charge']*20/100;
         ?>
     		
     		<div class="col-md-4">
-    			<label>Total Service Charge</label>
+    			<label>Total Service Charge(20% Administration Fee)</label>
+                <?php echo $r['service_charge']?>+20% Administration Fee
     			<input type="number" class="form-control" id="rates" name="rate" required="" value="<?php echo $sc?>" readonly>
     		</div>
     		<div class="clearfix">
