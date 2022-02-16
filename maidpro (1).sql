@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 15, 2022 at 05:39 PM
+-- Generation Time: Feb 16, 2022 at 07:32 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.1
 
@@ -42,7 +42,10 @@ CREATE TABLE `bank_account` (
 
 INSERT INTO `bank_account` (`bank_account_id`, `email`, `ac_holder_name`, `ac_no`, `ifsc`, `bank_name`) VALUES
 (2, 'jishnu123@gmail.com', 'Jishnu Gopalan', 2147483647, 'sbin0070149', 'sbi'),
-(3, 'abc@gmail.com', 'Jishnu Gopalan', 2147483647, 'sbin0070149', 'sbi');
+(3, 'abc@gmail.com', 'Jishnu Gopalan', 2147483647, 'sbin0070149', 'sbi'),
+(4, 'aadi@gmail.com', 'Jishnu Gopalan', 123456789, 'sbin0070149', 'sbi'),
+(5, 'aadi@gmail.com', 'Jishnu Gopalan', 123456789, 'sbin0070149', 'sbi'),
+(6, 'abc123@gmail.com', 'asaaaaaaaaaaa', 2147483647, 'sbin0070143', 'sbi');
 
 -- --------------------------------------------------------
 
@@ -173,7 +176,10 @@ INSERT INTO `login` (`login_id`, `email`, `usertype`) VALUES
 (2, 'jishnu123@gmail.com', 'worker'),
 (3, 'admin123@gmail.com', 'admin'),
 (4, 'jishnugopalan2000@gmail.com', 'user'),
-(5, 'abc@gmail.com', 'notuser');
+(5, 'abc@gmail.com', 'notuser'),
+(8, 'aadi@gmail.com', 'notuser'),
+(9, 'abc123@gmail.com', 'notuser'),
+(10, 'abcd@gmail.com', 'user');
 
 -- --------------------------------------------------------
 
@@ -205,7 +211,9 @@ INSERT INTO `notification` (`notification_id`, `senderid`, `receiverid`, `conten
 (8, 'jishnugopalan2000@gmail.com', '', 'Jishnu send a request.Do you want to accept?', '2022-02-13 06:19:39', 'request'),
 (9, 'jishnugopalan2000@gmail.com', 'jishnu123@gmail.com', 'Jishnu send a request.Do you want to accept?', '2022-02-13 06:19:45', 'request'),
 (10, 'jishnugopalan2000@gmail.com', 'jishnu123@gmail.com', 'Jishnu send a request.Do you want to accept?', '2022-02-13 06:21:05', 'request'),
-(11, 'jishnu123@gmail.com', 'jishnugopalan2000@gmail.com', 'Congratulations!Jishnu Gopalan accepted your request', '2022-02-13 06:49:42', 'accepted');
+(11, 'jishnu123@gmail.com', 'jishnugopalan2000@gmail.com', 'Congratulations!Jishnu Gopalan accepted your request', '2022-02-13 06:49:42', 'accepted'),
+(12, 'jishnugopalan2000@gmail.com', 'jishnu123@gmail.com', 'Jishnu send a request.Do you want to accept?', '2022-02-16 18:23:48', 'request'),
+(13, 'jishnugopalan2000@gmail.com', 'jishnu123@gmail.com', 'Jishnu send a request.Do you want to accept?', '2022-02-16 18:25:12', 'request');
 
 -- --------------------------------------------------------
 
@@ -258,7 +266,10 @@ CREATE TABLE `registration` (
 INSERT INTO `registration` (`user_id`, `email`, `name`, `phone`, `profile_pic`, `house`, `place`, `district`, `state`, `pincode`, `gender`, `date_of_birth`) VALUES
 (2, 'jishnu123@gmail.com', 'Jishnu Gopalan', 7994245510, 'images/profile_pic.png', 'Kochukudiputhenpura', 'Kuthukuzhy', '1', '1', 686691, 'Male', '1999-04-29'),
 (3, 'jishnugopalan2000@gmail.com', 'Jishnu', 7994245510, 'images/profile_pic.png', '', '', '', '', 0, '', ''),
-(4, 'abc@gmail.com', 'abc', 7994245510, 'images/profile_pic.png', 'sdas', 'asdas', '1', '1', 686691, 'Male', '2022-02-11');
+(4, 'abc@gmail.com', 'abc', 7994245510, 'images/profile_pic.png', 'sdas', 'asdas', '1', '1', 686691, 'Male', '2022-02-11'),
+(5, 'aadi@gmail.com', 'Aadi', 7994245510, 'images/profile_pic.png', 'shdakjdh', 'asdas', '1', '1', 686691, 'Male', '2022-02-16'),
+(6, 'abc123@gmail.com', 'abc', 9778146653, 'images/profile_pic.png', 'abc home', 'kuthukuzhy', '1', '1', 686691, 'Male', '2022-02-16'),
+(7, 'abcd@gmail.com', 'abcd', 9778146653, 'images/profile_pic.png', '', '', '', '', 0, '', '');
 
 -- --------------------------------------------------------
 
@@ -271,6 +282,8 @@ CREATE TABLE `request` (
   `userid` varchar(30) NOT NULL,
   `workerid` varchar(30) NOT NULL,
   `needs` text NOT NULL,
+  `contact_address` varchar(80) NOT NULL,
+  `contact_number` bigint(12) NOT NULL,
   `request_datetime` timestamp NOT NULL DEFAULT current_timestamp(),
   `request_status` tinyint(4) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -279,8 +292,8 @@ CREATE TABLE `request` (
 -- Dumping data for table `request`
 --
 
-INSERT INTO `request` (`request_id`, `userid`, `workerid`, `needs`, `request_datetime`, `request_status`) VALUES
-(6, 'jishnugopalan2000@gmail.com', 'jishnu123@gmail.com', 'fsdf', '2022-02-13 06:19:45', 1);
+INSERT INTO `request` (`request_id`, `userid`, `workerid`, `needs`, `contact_address`, `contact_number`, `request_datetime`, `request_status`) VALUES
+(9, 'jishnugopalan2000@gmail.com', 'jishnu123@gmail.com', 'eweq', 'eweqw', 7994245510, '2022-02-16 18:25:12', 0);
 
 -- --------------------------------------------------------
 
@@ -292,16 +305,16 @@ CREATE TABLE `review` (
   `review_id` int(11) NOT NULL,
   `workerid` varchar(35) NOT NULL,
   `userid` varchar(35) NOT NULL,
-  `review` varchar(80) NOT NULL
+  `review` varchar(80) NOT NULL,
+  `star` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `review`
 --
 
-INSERT INTO `review` (`review_id`, `workerid`, `userid`, `review`) VALUES
-(1, 'jishnu123@gmail.com', 'jishnugopalan2000@gmail.com', 'saasa'),
-(2, 'jishnu123@gmail.com', 'jishnugopalan2000@gmail.com', 'assaas');
+INSERT INTO `review` (`review_id`, `workerid`, `userid`, `review`, `star`) VALUES
+(3, 'jishnu123@gmail.com', 'jishnugopalan2000@gmail.com', 'sdadas', 4);
 
 -- --------------------------------------------------------
 
@@ -342,7 +355,10 @@ CREATE TABLE `verification` (
 
 INSERT INTO `verification` (`verification_id`, `email`, `verification_type`, `document`, `status`) VALUES
 (2, 'jishnu123@gmail.com', 'Adhaar Card', 'uploads/adhar demo.png', 1),
-(3, 'abc@gmail.com', 'Adhaar Card', 'users/uploads/adhar demo.png', 2);
+(3, 'abc@gmail.com', 'Adhaar Card', 'users/uploads/adhar demo.png', 2),
+(4, 'aadi@gmail.com', 'SSLC', 'users/uploads/avathar.jpg', 2),
+(5, 'aadi@gmail.com', 'SSLC', 'users/uploads/avathar.jpg', 2),
+(6, 'abc123@gmail.com', 'SSLC', 'users/uploads/avathar.jpg', 2);
 
 -- --------------------------------------------------------
 
@@ -367,7 +383,10 @@ CREATE TABLE `worker` (
 
 INSERT INTO `worker` (`worker_id`, `email`, `category`, `service_charge`, `starting_time`, `ending_time`, `description`, `experience`) VALUES
 (1, 'jishnu123@gmail.com', 'Cleaning', 1500, '10:00:00', '17:00:00', 'I am an experienced person.', 2),
-(2, 'abc@gmail.com', 'Painting', 6000, '13:30', '01:30', 'asdasd', 2);
+(2, 'abc@gmail.com', 'Painting', 6000, '13:30', '01:30', 'asdasd', 2),
+(3, 'aadi@gmail.com', 'Elderly Care', 1500, '', '', 'asdasdasd dccas', 3),
+(4, 'aadi@gmail.com', 'Elderly Care', 1500, '', '', 'asdasdasd dccas', 3),
+(5, 'abc123@gmail.com', 'Cleaning', 1000, '', '', 'asd sdass', 2);
 
 --
 -- Indexes for dumped tables
@@ -466,7 +485,7 @@ ALTER TABLE `worker`
 -- AUTO_INCREMENT for table `bank_account`
 --
 ALTER TABLE `bank_account`
-  MODIFY `bank_account_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `bank_account_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `bill`
@@ -496,13 +515,13 @@ ALTER TABLE `feedbacks`
 -- AUTO_INCREMENT for table `login`
 --
 ALTER TABLE `login`
-  MODIFY `login_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `login_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `notification`
 --
 ALTER TABLE `notification`
-  MODIFY `notification_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `notification_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `payment`
@@ -514,19 +533,19 @@ ALTER TABLE `payment`
 -- AUTO_INCREMENT for table `registration`
 --
 ALTER TABLE `registration`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `request`
 --
 ALTER TABLE `request`
-  MODIFY `request_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `request_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `review`
 --
 ALTER TABLE `review`
-  MODIFY `review_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `review_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `state`
@@ -538,13 +557,13 @@ ALTER TABLE `state`
 -- AUTO_INCREMENT for table `verification`
 --
 ALTER TABLE `verification`
-  MODIFY `verification_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `verification_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `worker`
 --
 ALTER TABLE `worker`
-  MODIFY `worker_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `worker_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -21,8 +21,8 @@ $verification_type=$_POST["verification_type"];
 
 $category=$_POST["job_category"];
 $service_charge=$_POST["service_charge"];
-$starting_time=$_POST["starting_time"];
-$ending_time=$_POST["ending_time"];
+// $starting_time=$_POST["starting_time"];
+// $ending_time=$_POST["ending_time"];
 $experience=$_POST["experience"];
 $description=$_POST["description"];
 
@@ -38,11 +38,11 @@ if(mysqli_query($conn,$sql1)){
 				//ECHO "IN";
 				$sql3="insert into bank_account(email,ac_holder_name,ac_no,ifsc,bank_name)values('$email','$ac_holder_name',$ac_no,'$ifsc','$bank_name')";
 				//echo $sql3;
-				$sql4="insert into worker(email,category,service_charge,starting_time,ending_time,description,experience)values('$email','$category','$service_charge','$starting_time','$ending_time','$description','$experience')";
+				$sql4="insert into worker(email,category,service_charge,description,experience)values('$email','$category','$service_charge','$description','$experience')";
 				if(mysqli_query($conn,$sql4)){
 					if(mysqli_query($conn,$sql3)){
 					echo "<script>alert('Form submitted successfully. Please wait for admin approval')
-					window.location.replace('index.php')
+					window.location.replace('new/index.php')
 					</script>";
 					
 				}

@@ -50,8 +50,7 @@ $worker_email=$_GET['email'];
                Expected Service Charge(per day):<?php echo $r['service_charge']?> Rs<br>
                Experience:<?php echo $r['experience']?> years    
             </p>
-            <p>Starting Time:<?php echo $r['starting_time']?><br>
-               Ending Time:<?php echo $r['ending_time']?><br>
+            <p>
                Description:<?php echo $r['description']?>
                 
             </p>
@@ -111,12 +110,23 @@ $worker_email=$_GET['email'];
     
     ?>
     <form method="POST" action="sendrequest.php">
+        <div class="clearfix"></div>
         <div class="col-md-6">
+             <label>Address</label>
+            <input type="text" name="contact_address" class="form-control" required="" style="height: 100px;" placeholder="Enter the address and location landmark">
+            <input type="text" pattern="[6789][0-9]{9}" class="form-control" name="contact_number" required="" placeholder="Contact number">
+        </div>
+        <div class="col-md-6">
+           
         <label>Explain Your needs</label>
-        <input type="hidden" name="worker_email" value="<?php echo $worker_email?>">
-        <input type="text" class="form-control" name="needs" style="height: 100px;" required="">
-        <button class="btn btn-primary">Send Request</button>
+        <input type="hidden" name="worker_email" value="<?php echo $worker_email?>" >
+        <input type="text" class="form-control" name="needs" style="height: 130px;" required="" placeholder="Explain the required job">
+        
 
+    </div>
+    <div class="clearfix"></div>
+    <div class="col-md-6">
+        <button class="btn btn-primary">Send Request</button>
     </div>
         
     </form>
@@ -147,7 +157,8 @@ if(mysqli_num_rows($res)>0){
   border-radius: 50%;" src="../users/<?php echo $r4['profile_pic']?>" alt=""> </span> 
                                     <div class="user-name">
                                         <?php echo $r4['name'] ?>
-    <p><?php echo $r3['review']?></p>
+    <br><?php echo $r3['review']?>
+    <p>Rated <?php echo $r3['star']?>☆</p>
 </div>
    </div>
 </div>

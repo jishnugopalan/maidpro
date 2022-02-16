@@ -31,6 +31,8 @@
                                 </div>  
                                 <div class="clearfix"></div>
     <p><?php echo $r['needs']?></p>
+    <p>Contact Address:<?php echo $r['contact_address']?></p>
+    <p>Contact number:<?php echo $r['contact_number']?></p>
     <!-- user details -->
     <a href="viewdetails.php?email=<?php echo $r['workerid']?>">
   View Worker Details

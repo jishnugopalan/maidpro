@@ -39,6 +39,17 @@ $category=$_GET['category'];
 
                 ?>
                 <br>
+                <?php
+                $workerid=$r['email'];
+                $sql3="select avg(star) from review where workerid='$workerid'";
+                $res3=mysqli_query($conn,$sql3);
+                $r3=mysqli_fetch_assoc($res3);
+
+                ?>
+                <div style="color:black;">
+                Rated <?php echo intval($r3['avg(star)'])?>☆
+                    
+                </div>
                  
 
     		</p>

@@ -43,6 +43,7 @@ phoneSignin();
 					n:name,
 					e:email,
 					ph:phone,
+          s:seeker,
           
 					
 					
@@ -50,8 +51,8 @@ phoneSignin();
 				success: function(data){
 		console.log(data)
 		if(seeker==1){
-      alert("seeker")
-      window.location.replace("adminverification.php?email=<?php echo $email?>")
+     
+      window.location.replace("adminverify.php?email=<?php echo $email?>")
     }
     else{
         window.location.replace("login.php")

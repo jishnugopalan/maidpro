@@ -162,6 +162,9 @@
 					window.location.replace("admin/index.php")
 
 					}
+					else{
+						alert("You are not verified")
+					}
 				}
       		})
 

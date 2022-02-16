@@ -108,6 +108,54 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!--skycons-icons-->
 <script src="js/skycons.js"></script>
 <!--//skycons-icons-->
+<style type="text/css">
+.txt-center {
+    text-align: center;
+}
+.hide {
+    display: none;
+}
+
+.clear {
+    float: none;
+    clear: both;
+}
+
+.rating {
+    width: 90px;
+    unicode-bidi: bidi-override;
+    direction: rtl;
+    text-align: center;
+    position: relative;
+}
+
+.rating > label {
+    float: right;
+    display: inline;
+    padding: 0;
+    margin: 0;
+    position: relative;
+    width: 1.1em;
+    cursor: pointer;
+    color: #000;
+}
+
+.rating > label:hover,
+.rating > label:hover ~ label,
+.rating > input.radio-btn:checked ~ label {
+    color: transparent;
+}
+
+.rating > label:hover:before,
+.rating > label:hover ~ label:before,
+.rating > input.radio-btn:checked ~ label:before,
+.rating > input.radio-btn:checked ~ label:before {
+    content: "\2605";
+    position: absolute;
+    left: 0;
+    color: #FFD700;
+}
+</style>
 </head>
 <body>	
 <div class="page-container">	
@@ -150,7 +198,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 										</a>
 										<ul class="dropdown-menu drp-mnu">
 											<li> <a href="updatepassword.php"><i class="fa fa-cog"></i> Update Password</a> </li> 
-											<!-- <li> <a href="myprofile.php"><i class="fa fa-user"></i> Profile</a> </li>  -->
+											<li> <a href="myprofile.php"><i class="fa fa-user"></i> Profile</a> </li> 
 											<li> <a href="../logout.php"><i class="fa fa-sign-out"></i> Logout</a> </li>
 										</ul>
 									</li>

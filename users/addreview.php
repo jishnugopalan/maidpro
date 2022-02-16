@@ -27,17 +27,31 @@ $sql1="select * from registration where email='$workerid'";
                                     
                                 </div>  
                                 <div class="clearfix"></div>
-                                <form method="POST" action="reviewadd.php">
-                                  <input type="hidden" name="workerid" value="<?php echo $workerid?>">
-                                  <div class="col-md-6">
-                                    <label>Add a review</label>
-                                    <input type="text" required="" name="review" style="width:400px;height: 250px;" class="form-control">
-                                  </div>
-                                  <div class="clearfix"></div>
-                                  <div class="col-md-6">
-                                    <button type="submit" class="btn btn-success">Submit</button>
-                                  </div>
-                                </form>
+                               <h4>Add a review</h4>
+            
+               <form action="reviewadd.php" method="POST">
+                             <fieldset>                 
+                               <section>
+                                <div class="rating">
+            <input id="star5" name="star" type="radio" value="5" class="radio-btn hide" />
+            <label for="star5" data-toggle="tooltip" title="5"><h4>☆</h4></label>
+            <input id="star4" name="star" type="radio" value="4" class="radio-btn hide" />
+            <label for="star4" data-toggle="tooltip" title="4"><h4>☆</h4></label>
+            <input id="star3" name="star" type="radio" value="3" class="radio-btn hide" />
+            <label for="star3" data-toggle="tooltip" title="3"><h4>☆</h4></label>
+            <input id="star2" name="star" type="radio" value="2" class="radio-btn hide" />
+            <label for="star2" data-toggle="tooltip" title="2"><h4>☆</h4></label>
+            <input id="star1" name="star" type="radio" value="1" class="radio-btn hide" />
+            <label for="star1" data-toggle="tooltip" title="1"><h4>☆</h4></label>
+            <div class="clear"></div>
+        </div>
+                              </section>
+                            </fieldset>
+                            <input type="hidden" name="workerid" value="<?php echo $workerid?>">
+                            <input type="text" class="form-control" name="review" required="" placeholder="Write some review" style="width:300px;height: 100px;">
+                        <button type="submit" class="btn btn-primary">Add</button>
+                      </form>
+            
     
   
 </div>
