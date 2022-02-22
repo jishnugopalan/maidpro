@@ -4,17 +4,45 @@
 
 <div class="inner-block">
     <div class="blank">
-    	<h2>Add Category</h2>
+    	<h2>Change Rates</h2>
     	<form method="POST" action="addcat.php" enctype="multipart/form-data">
     	<div class="col-md-4">
-      <label>Category Name</label>
-      <input type="text" name="category" class="form-control" required="">
-    	</div>
-    	<div class="clearfix"></div>
-    	<div class="col-md-4">
-      <label>Category Image</label>
-       <input type="file" name="catimage" class="custom-file-input" id="validatedCustomFile" required>
-    	</div>
+        <label>Select Category</label>
+        <select class="form-control" name="category_id" onchange="getrate(this.value)">
+           <option value disabled selected>Select Category</option>
+          <?php
+          include("dbconn.php");
+          $sql="select * from category";
+          $res=mysqli_query($conn,$sql);
+          foreach($res as $cat){
+          ?>
+          <option value="<?php echo $cat['category_id']?>"><?php echo $cat['category']?></option>
+          <?php
+          }
+          ?>
+
+        </select>
+      </div>
+      <script type="text/javascript">
+        function getrate(val){
+          console.log(val)
+          var category_id=val
+          $.ajax({
+            type:"POST",
+            url:"getrate.php",
+            data:'category_id='+val,
+            success:function(data){
+              console.log(data)
+              document.getElementById("rate").value=data
+            }
+          })
+        } 
+      </script>
+      <div class="clearfix"></div>
+      <div class="col-md-4">
+        <label>Rate</label>
+        <input type="number" class="form-control" name="rate" value="" id="rate" required="">
+      </div>
     	<div class="clearfix"></div>
     	<div class="col-md-4">
     		<br>

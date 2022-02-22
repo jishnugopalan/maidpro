@@ -4,13 +4,15 @@
 
 <div class="inner-block">
     <div class="blank">
-    	<h2>My Workers</h2>
+    	<h2>Job Request</h2>
  <?php
- $sql="select * from request where userid='$email'";
+ include("dbconn.php");
+ $email=$_SESSION["workerid"];
+ $sql="select * from request where workerid='$email'";
  $res=mysqli_query($conn,$sql);
  if(mysqli_num_rows($res)>0){
  	while($r=mysqli_fetch_assoc($res)){
- 		$userid=$r['workerid'];
+ 		$userid=$r['userid'];
  		$sql1="select * from registration where email='$userid'";
  		$r1=mysqli_fetch_assoc(mysqli_query($conn,$sql1));
  		$name=$r1['name'];
@@ -34,12 +36,9 @@
     <p>Contact Address:<?php echo $r['contact_address']?></p>
     <p>Contact number:<?php echo $r['contact_number']?></p>
     <!-- user details -->
-    <a href="viewdetails.php?email=<?php echo $r['workerid']?>">
-  View Worker Details
-</a>
-    <!-- <a href="" data-toggle="modal" data-target="#exampleModalCenter">
-  View Worker Details
-</a> -->
+    <a href="" data-toggle="modal" data-target="#exampleModalCenter">
+  View User Details
+</a><br>
 
 <!-- Modal -->
 <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -74,16 +73,20 @@
     </div>
   </div>
 </div>
-    
+
+    <?php 
+     if($r['request_status']==0){
+    ?>
+      <h4 style="color:green;">Not Accepted</h4>
     <?php
-     
+     }
      if($r['request_status']==1){
      ?>
      	<h4 style="color:green;">Accepted</h4>
-     	<a href="chat.php?userid=<?php echo $r['workerid']?>&&username=<?php echo $r1['name']?>" class="btn btn-primary">Chat now</a>
-     	<a href="viewbill.php?requestid=<?php echo $r['request_id']?>" class="btn btn-primary">View Bill</a>
-        <a href="completejob.php?request_id=<?php echo $r['request_id']?>" class="btn btn-primary">Marked as Completed</a>
-  
+     <!-- 	<a href="chat.php?userid=<?php echo $r['userid']?> && username=<?php echo $r1['name']?>" class="btn btn-primary">Chat now</a>
+     	<a href="sendbill.php?request_id=<?php echo $r['request_id']?> && user_id=<?php echo $r['userid']?> " class="btn btn-primary">Create Payment Request</a> -->
+     	<a href="completejob.php?request_id=<?php echo $r['request_id']?>" class="btn btn-primary">Marked as Completed</a>
+
 
 
      <?php
@@ -95,20 +98,9 @@
      	
      <?php
      }
-     if($r['request_status']==0){
-     ?>
-      <h4 style="color:red;">Not Accepted</h4>
-
-      
-     <?php
-     }
-    ?>
-     <?php
-     
      if($r['request_status']==3){
      ?>
       <h4 style="color:green;">Completed</h4>
-      <a href="addreview.php?workerid=<?php echo $r['workerid']?> " class="btn btn-primary">Add Review</a>
 
       
      <?php

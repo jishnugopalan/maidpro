@@ -198,7 +198,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 										</a>
 										<ul class="dropdown-menu drp-mnu">
 											<li> <a href="updatepassword.php"><i class="fa fa-cog"></i> Update Password</a> </li> 
-											<li> <a href="myprofile.php"><i class="fa fa-user"></i> Profile</a> </li> 
+											<!-- <li> <a href="myprofile.php"><i class="fa fa-user"></i> Profile</a> </li>  -->
 											<li> <a href="../logout.php"><i class="fa fa-sign-out"></i> Logout</a> </li>
 										</ul>
 									</li>

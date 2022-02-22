@@ -20,6 +20,10 @@ $bank_name=$_POST["bank_name"];
 $verification_type=$_POST["verification_type"];
 
 $category=$_POST["job_category"];
+$sql6="select category from category where category_id=$category";
+$r6=mysqli_fetch_assoc(mysqli_query($conn,$sql6));
+$category=$r6['category'];
+
 $service_charge=$_POST["service_charge"];
 // $starting_time=$_POST["starting_time"];
 // $ending_time=$_POST["ending_time"];

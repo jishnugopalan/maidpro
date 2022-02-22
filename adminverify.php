@@ -211,21 +211,43 @@ foreach($results as $state) {
 
 <div class="col-md-12">
 	<label>Job Category</label>
-	<select class="form-control" name="job_category" required="">
-		<option value disabled selected>Select a category</option>
-    <option value="Cleaning">Cleaning</option>
-    <option value="Cooking">Cooking</option>
-    <option value="Baby Sitter">Baby Sitter</option>
-    <option value="Elderly Care">Elderly Care</option>
+	<select class="form-control" name="job_category" required="" onchange="getrates(this.value)">
+    <option value disabled selected>Select Category</option>
+          <?php
+          include("dbconn.php");
+          $sql4="select * from category";
+          $res4=mysqli_query($conn,$sql4);
+          foreach($res4 as $cat){
+          ?>
+          
+          <option value="<?php echo $cat['category_id']?>"><?php echo $cat['category']?></option>
+          <?php
+          }
+          ?>
 
 
 
-
-	</select>
+  </select>
+  <script type="text/javascript">
+        function getrates(val){
+          console.log("inn")
+          console.log(val)
+          var category_id=val
+          $.ajax({
+            type:"POST",
+            url:"admin/getrate.php",
+            data:'category_id='+val,
+            success:function(data){
+              console.log(data)
+              document.getElementById("rate").value=data
+            }
+          })
+        } 
+      </script>
 </div>
 <div class="col-md-12">
-	<label>Expected Service Charge(per day)</label>
-	<input type="number" name="service_charge" class="form-control" required="">
+	<label>Service Charge(per day)</label>
+	<input type="number" name="service_charge" id="rate" class="form-control" required="" readonly="">
 </div>
 <!-- <div class="clearfix"></div> -->
 <!-- <div class="col-md-4">

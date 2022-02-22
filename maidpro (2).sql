@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 16, 2022 at 07:32 PM
+-- Generation Time: Feb 22, 2022 at 08:14 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.1
 
@@ -45,7 +45,8 @@ INSERT INTO `bank_account` (`bank_account_id`, `email`, `ac_holder_name`, `ac_no
 (3, 'abc@gmail.com', 'Jishnu Gopalan', 2147483647, 'sbin0070149', 'sbi'),
 (4, 'aadi@gmail.com', 'Jishnu Gopalan', 123456789, 'sbin0070149', 'sbi'),
 (5, 'aadi@gmail.com', 'Jishnu Gopalan', 123456789, 'sbin0070149', 'sbi'),
-(6, 'abc123@gmail.com', 'asaaaaaaaaaaa', 2147483647, 'sbin0070143', 'sbi');
+(6, 'abc123@gmail.com', 'asaaaaaaaaaaa', 2147483647, 'sbin0070143', 'sbi'),
+(7, 'abin123@gmail.com', 'fds', 2147483647, 'das', 'sda');
 
 -- --------------------------------------------------------
 
@@ -80,17 +81,19 @@ INSERT INTO `bill` (`bill_id`, `request_id`, `userid`, `workerid`, `rate`, `date
 CREATE TABLE `category` (
   `category_id` int(11) NOT NULL,
   `category` varchar(30) NOT NULL,
-  `category_image` varchar(50) NOT NULL
+  `category_image` varchar(50) NOT NULL,
+  `rate` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `category`
 --
 
-INSERT INTO `category` (`category_id`, `category`, `category_image`) VALUES
-(1, 'Painting', 'uploads/painting.jpg'),
-(2, 'Cleaning', 'uploads/cleaning.jpg'),
-(3, 'Cooking', 'uploads/cooking.jpg');
+INSERT INTO `category` (`category_id`, `category`, `category_image`, `rate`) VALUES
+(4, 'Cleaning', '', 1001),
+(5, 'Cooking', '', 1000),
+(6, 'Baby Sitter', '', 1000),
+(7, 'Elderly Care', '', 1000);
 
 -- --------------------------------------------------------
 
@@ -179,7 +182,8 @@ INSERT INTO `login` (`login_id`, `email`, `usertype`) VALUES
 (5, 'abc@gmail.com', 'notuser'),
 (8, 'aadi@gmail.com', 'notuser'),
 (9, 'abc123@gmail.com', 'notuser'),
-(10, 'abcd@gmail.com', 'user');
+(10, 'abcd@gmail.com', 'user'),
+(11, 'abin123@gmail.com', 'worker');
 
 -- --------------------------------------------------------
 
@@ -213,7 +217,8 @@ INSERT INTO `notification` (`notification_id`, `senderid`, `receiverid`, `conten
 (10, 'jishnugopalan2000@gmail.com', 'jishnu123@gmail.com', 'Jishnu send a request.Do you want to accept?', '2022-02-13 06:21:05', 'request'),
 (11, 'jishnu123@gmail.com', 'jishnugopalan2000@gmail.com', 'Congratulations!Jishnu Gopalan accepted your request', '2022-02-13 06:49:42', 'accepted'),
 (12, 'jishnugopalan2000@gmail.com', 'jishnu123@gmail.com', 'Jishnu send a request.Do you want to accept?', '2022-02-16 18:23:48', 'request'),
-(13, 'jishnugopalan2000@gmail.com', 'jishnu123@gmail.com', 'Jishnu send a request.Do you want to accept?', '2022-02-16 18:25:12', 'request');
+(13, 'jishnugopalan2000@gmail.com', 'jishnu123@gmail.com', 'Jishnu send a request.Do you want to accept?', '2022-02-16 18:25:12', 'request'),
+(14, 'jishnu123@gmail.com', 'jishnugopalan2000@gmail.com', 'Congratulations!Jishnu Gopalan accepted your request', '2022-02-22 17:40:05', 'accepted');
 
 -- --------------------------------------------------------
 
@@ -264,12 +269,13 @@ CREATE TABLE `registration` (
 --
 
 INSERT INTO `registration` (`user_id`, `email`, `name`, `phone`, `profile_pic`, `house`, `place`, `district`, `state`, `pincode`, `gender`, `date_of_birth`) VALUES
-(2, 'jishnu123@gmail.com', 'Jishnu Gopalan', 7994245510, 'images/profile_pic.png', 'Kochukudiputhenpura', 'Kuthukuzhy', '1', '1', 686691, 'Male', '1999-04-29'),
-(3, 'jishnugopalan2000@gmail.com', 'Jishnu', 7994245510, 'images/profile_pic.png', '', '', '', '', 0, '', ''),
-(4, 'abc@gmail.com', 'abc', 7994245510, 'images/profile_pic.png', 'sdas', 'asdas', '1', '1', 686691, 'Male', '2022-02-11'),
-(5, 'aadi@gmail.com', 'Aadi', 7994245510, 'images/profile_pic.png', 'shdakjdh', 'asdas', '1', '1', 686691, 'Male', '2022-02-16'),
-(6, 'abc123@gmail.com', 'abc', 9778146653, 'images/profile_pic.png', 'abc home', 'kuthukuzhy', '1', '1', 686691, 'Male', '2022-02-16'),
-(7, 'abcd@gmail.com', 'abcd', 9778146653, 'images/profile_pic.png', '', '', '', '', 0, '', '');
+(2, 'jishnu123@gmail.com', 'Jishnu Gopalan', 7994245510, '../users/images/jishnu.jpg', 'Kochukudiputhenpura', 'Kuthukuzhy', '1', '1', 686691, 'Male', '2022-02-22'),
+(3, 'jishnugopalan2000@gmail.com', 'Jishnu', 7994245510, 'images/profile_pic.png	', '', '', '', '', 0, '', ''),
+(4, 'abc@gmail.com', 'abc', 7994245510, 'images/profile_pic.png	', 'sdas', 'asdas', '1', '1', 686691, 'Male', '2022-02-11'),
+(5, 'aadi@gmail.com', 'Aadi', 7994245510, 'images/profile_pic.png	', 'shdakjdh', 'asdas', '1', '1', 686691, 'Male', '2022-02-16'),
+(6, 'abc123@gmail.com', 'abc', 9778146653, 'images/profile_pic.png	', 'abc home', 'kuthukuzhy', '1', '1', 686691, 'Male', '2022-02-16'),
+(7, 'abcd@gmail.com', 'abcd', 9778146653, 'images/profile_pic.png	', '', '', '', '', 0, '', ''),
+(8, 'abin123@gmail.com', 'abin', 7994245510, 'images/profile_pic.png', 'fsd', 'ffds', '1', '1', 686691, 'Male', '2022-02-23');
 
 -- --------------------------------------------------------
 
@@ -293,7 +299,7 @@ CREATE TABLE `request` (
 --
 
 INSERT INTO `request` (`request_id`, `userid`, `workerid`, `needs`, `contact_address`, `contact_number`, `request_datetime`, `request_status`) VALUES
-(9, 'jishnugopalan2000@gmail.com', 'jishnu123@gmail.com', 'eweq', 'eweqw', 7994245510, '2022-02-16 18:25:12', 0);
+(9, 'jishnugopalan2000@gmail.com', 'jishnu123@gmail.com', 'eweq', 'eweqw', 7994245510, '2022-02-16 18:25:12', 1);
 
 -- --------------------------------------------------------
 
@@ -358,7 +364,8 @@ INSERT INTO `verification` (`verification_id`, `email`, `verification_type`, `do
 (3, 'abc@gmail.com', 'Adhaar Card', 'users/uploads/adhar demo.png', 2),
 (4, 'aadi@gmail.com', 'SSLC', 'users/uploads/avathar.jpg', 2),
 (5, 'aadi@gmail.com', 'SSLC', 'users/uploads/avathar.jpg', 2),
-(6, 'abc123@gmail.com', 'SSLC', 'users/uploads/avathar.jpg', 2);
+(6, 'abc123@gmail.com', 'SSLC', 'users/uploads/avathar.jpg', 2),
+(7, 'abin123@gmail.com', 'SSLC', 'users/uploads/IMG_20210818_091019_2.jpg', 1);
 
 -- --------------------------------------------------------
 
@@ -386,7 +393,8 @@ INSERT INTO `worker` (`worker_id`, `email`, `category`, `service_charge`, `start
 (2, 'abc@gmail.com', 'Painting', 6000, '13:30', '01:30', 'asdasd', 2),
 (3, 'aadi@gmail.com', 'Elderly Care', 1500, '', '', 'asdasdasd dccas', 3),
 (4, 'aadi@gmail.com', 'Elderly Care', 1500, '', '', 'asdasdasd dccas', 3),
-(5, 'abc123@gmail.com', 'Cleaning', 1000, '', '', 'asd sdass', 2);
+(5, 'abc123@gmail.com', 'Cleaning', 1000, '', '', 'asd sdass', 2),
+(6, 'abin123@gmail.com', 'Baby Sitter', 1000, '', '', 'fdf', 4);
 
 --
 -- Indexes for dumped tables
@@ -485,7 +493,7 @@ ALTER TABLE `worker`
 -- AUTO_INCREMENT for table `bank_account`
 --
 ALTER TABLE `bank_account`
-  MODIFY `bank_account_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `bank_account_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `bill`
@@ -497,7 +505,7 @@ ALTER TABLE `bill`
 -- AUTO_INCREMENT for table `category`
 --
 ALTER TABLE `category`
-  MODIFY `category_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `category_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `district`
@@ -515,13 +523,13 @@ ALTER TABLE `feedbacks`
 -- AUTO_INCREMENT for table `login`
 --
 ALTER TABLE `login`
-  MODIFY `login_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `login_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `notification`
 --
 ALTER TABLE `notification`
-  MODIFY `notification_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `notification_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `payment`
@@ -533,7 +541,7 @@ ALTER TABLE `payment`
 -- AUTO_INCREMENT for table `registration`
 --
 ALTER TABLE `registration`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `request`
@@ -557,13 +565,13 @@ ALTER TABLE `state`
 -- AUTO_INCREMENT for table `verification`
 --
 ALTER TABLE `verification`
-  MODIFY `verification_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `verification_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `worker`
 --
 ALTER TABLE `worker`
-  MODIFY `worker_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `worker_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

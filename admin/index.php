@@ -5,7 +5,7 @@
 <div class="inner-block">
     <div class="blank">
     	<h2>Approved Workers</h2>
-<div class="col-md-4">
+<div class="col-md-6">
 	<a href="viewworkerss.php?category=Cleaning"><div class="card"  style="width: 18rem;">
   <img class="card-img-top" src="../new/images/cleaning.jpeg" alt="Card image cap" width="340px">
   <div class="card-body">
@@ -14,7 +14,7 @@
   </div>
 </div></a>
 </div>
- <div class="col-md-4"> 	
+ <div class="col-md-6"> 	
 
  <a href="viewworkerss.php?category=Cooking"><div class="card"  style="width: 18rem;">
   <img class="card-img-top" src="../new/images/cooking.jpeg" alt="Card image cap" width="340px">
@@ -24,8 +24,9 @@
   </div>
 </div></a>
 </div>
+<div class="clearfix"></div>
 
- <div class="col-md-4"> 	
+ <div class="col-md-6"> 	
 
  <a href="viewworkerss.php?category=Baby Sitter"><div class="card"  style="width: 18rem;">
   <img class="card-img-top" src="../new/images/child.jpg" alt="Card image cap" width="340px">
@@ -36,7 +37,7 @@
 </div></a>
 </div>
 
-<div class="col-md-4"> 	
+<div class="col-md-6"> 	
 
  <a href="viewworkerss.php?category=Elderly Care"><div class="card"  style="width: 18rem;">
   <img class="card-img-top" src="../new/images/elder.jpg" alt="Card image cap" width="340px">

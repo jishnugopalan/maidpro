@@ -60,7 +60,7 @@
             </td>
             <td>
             	<?php echo $r['verification_type']?><br>
-            	<a href="../users/<?php echo $r['document']?>"><img src="../users/<?php echo $r['document']?>" class="img-thumbnail" width="200" height="200"></a>
+            	<a href="../<?php echo $r['document']?>"><img src="../<?php echo $r['document']?>" class="img-thumbnail" width="200" height="200"></a>
             </td>
             <td>
             	Job Category:<?php echo $r['category']?><br>

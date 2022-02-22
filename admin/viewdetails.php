@@ -4,6 +4,7 @@
 ?>
 <?php
 $worker_email=$_GET['email'];
+$_SESSION['workerid']=$worker_email;
 
 ?>
 <div class="inner-block">
@@ -87,6 +88,13 @@ $worker_email=$_GET['email'];
                 Phone:<?php echo $r['phone']?>
 
             </p>
+
+
+        </div>
+        <div class="clearfix"></div>
+        <div class="col-md-6">
+        <a href="jobs.php" class="btn btn-primary">View Works</a>
+            
         </div>
         <div class="clearfix"></div>
 
