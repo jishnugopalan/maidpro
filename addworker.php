@@ -13,10 +13,10 @@ $pincode=$_POST["pincode"];
 //$adhaar_no=$_POST["adhaar_no"];
 //$adhaar=$_POST["adhaar"];
 //$photo=$_POST["photo"];
-$ac_holder_name=$_POST["ac_holder_name"];
-$ac_no=$_POST["ac_number"];
-$ifsc=$_POST["ifsc"];
-$bank_name=$_POST["bank_name"];
+// $ac_holder_name=$_POST["ac_holder_name"];
+// $ac_no=$_POST["ac_number"];
+// $ifsc=$_POST["ifsc"];
+// $bank_name=$_POST["bank_name"];
 $verification_type=$_POST["verification_type"];
 
 $category=$_POST["job_category"];
@@ -40,16 +40,16 @@ if(mysqli_query($conn,$sql1)){
 			$sql2="insert into verification(email,verification_type,document)values('$email','$verification_type','$target_file2')";
 			if(mysqli_query($conn,$sql2)){
 				//ECHO "IN";
-				$sql3="insert into bank_account(email,ac_holder_name,ac_no,ifsc,bank_name)values('$email','$ac_holder_name',$ac_no,'$ifsc','$bank_name')";
+				// $sql3="insert into bank_account(email,ac_holder_name,ac_no,ifsc,bank_name)values('$email','$ac_holder_name',$ac_no,'$ifsc','$bank_name')";
 				//echo $sql3;
 				$sql4="insert into worker(email,category,service_charge,description,experience)values('$email','$category','$service_charge','$description','$experience')";
 				if(mysqli_query($conn,$sql4)){
-					if(mysqli_query($conn,$sql3)){
+					
 					echo "<script>alert('Form submitted successfully. Please wait for admin approval')
 					window.location.replace('new/index.php')
 					</script>";
 					
-				}
+				
 
 				}
 				

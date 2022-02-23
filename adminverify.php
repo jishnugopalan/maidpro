@@ -103,7 +103,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
   </fieldset>
   <div class="col-md-6">
     <label for="inputEmail4" class="form-label">Date of birth</label>
-    <input type="date" class="form-control" id="date_of_birth" required="" name="date_of_birth">
+    <input type="date" class="form-control" id="date_of_birth" required="" name="date_of_birth" max="2004-12-31">
   </div>
   <div class="col-md-6">
     <label for="inputEmail4" class="form-label">House</label>
@@ -179,7 +179,7 @@ foreach($results as $state) {
 <!--  <h3 class="text-center">Bank Account Details</h3><br> -->
 
  
-<div class="col-md-12">
+<!-- <div class="col-md-12">
 
     <label for="inputEmail4" class="form-label">Account holder name</label>
     <input type="text" class="form-control" id="" required="" name="ac_holder_name">
@@ -204,7 +204,7 @@ foreach($results as $state) {
     <input type="text" class="form-control" id="" required="" name="bank_name">
     <span class="error_form" id="pincode_error"></span>
 
-  </div>
+  </div> -->
 
 <div class="clearfix"></div>
 <!-- <h3 class="text-center">Job Details</h3> -->

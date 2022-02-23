@@ -6,7 +6,7 @@
     <div class="blank">
     	<h2>My Workers</h2>
  <?php
- $sql="select * from request where userid='$email'";
+ $sql="select * from request where userid='$email' order by request_id desc";
  $res=mysqli_query($conn,$sql);
  if(mysqli_num_rows($res)>0){
  	while($r=mysqli_fetch_assoc($res)){
@@ -33,6 +33,7 @@
     <p><?php echo $r['needs']?></p>
     <p>Contact Address:<?php echo $r['contact_address']?></p>
     <p>Contact number:<?php echo $r['contact_number']?></p>
+    <p>Booking Date:<?php echo $r['booking_date']?></p>
     <!-- user details -->
     <a href="viewdetails.php?email=<?php echo $r['workerid']?>">
   View Worker Details
@@ -65,7 +66,8 @@
 
              <div class="clearfix"></div>  
               Email:<?php echo $r1['email']?><br>
-               Phone:<?php echo $r1['phone']?>
+               Phone:<?php echo $r1['phone']?><br>
+
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -81,8 +83,8 @@
      ?>
      	<h4 style="color:green;">Accepted</h4>
      	<a href="chat.php?userid=<?php echo $r['workerid']?>&&username=<?php echo $r1['name']?>" class="btn btn-primary">Chat now</a>
-     	<a href="viewbill.php?requestid=<?php echo $r['request_id']?>" class="btn btn-primary">View Bill</a>
-        <a href="completejob.php?request_id=<?php echo $r['request_id']?>" class="btn btn-primary">Marked as Completed</a>
+     	<a href="viewbill.php?requestid=<?php echo $r['request_id']?>" class="btn btn-primary">Mark as Completed</a>
+        <!-- <a href="completejob.php?request_id=<?php echo $r['request_id']?>" class="btn btn-primary">Marked as Completed</a> -->
   
 
 
@@ -97,7 +99,7 @@
      }
      if($r['request_status']==0){
      ?>
-      <h4 style="color:red;">Not Accepted</h4>
+      <h4 style="color:red;">Pending</h4>
 
       
      <?php

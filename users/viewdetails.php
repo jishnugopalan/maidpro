@@ -114,13 +114,16 @@ $worker_email=$_GET['email'];
         <div class="col-md-6">
              <label>Address</label>
             <input type="text" name="contact_address" class="form-control" required="" style="height: 100px;" placeholder="Enter the address and location landmark">
+            <label>Contact Number</label>
             <input type="text" pattern="[6789][0-9]{9}" class="form-control" name="contact_number" required="" placeholder="Contact number">
         </div>
         <div class="col-md-6">
            
         <label>Explain Your needs</label>
         <input type="hidden" name="worker_email" value="<?php echo $worker_email?>" >
-        <input type="text" class="form-control" name="needs" style="height: 130px;" required="" placeholder="Explain the required job">
+        <input type="text" class="form-control" name="needs" style="height: 100px;" required="" placeholder="Explain the required job">
+        <label>Booking date</label>
+        <input type="date" min="<?php echo date("Y-m-d")?>" class="form-control" name="booking_date" required="">
         
 
     </div>

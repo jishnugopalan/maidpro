@@ -4,7 +4,7 @@
 
 <div class="inner-block">
     <div class="blank">
-    	<h2>Change Rates</h2>
+    	<h2>Update Category</h2>
     	<form method="POST" action="addcat.php" enctype="multipart/form-data">
     	<div class="col-md-4">
         <label>Select Category</label>
