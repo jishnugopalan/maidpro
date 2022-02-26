@@ -83,8 +83,8 @@
      ?>
      	<h4 style="color:green;">Accepted</h4>
      	<a href="chat.php?userid=<?php echo $r['workerid']?>&&username=<?php echo $r1['name']?>" class="btn btn-primary">Chat now</a>
-     	<a href="viewbill.php?requestid=<?php echo $r['request_id']?>" class="btn btn-primary">Mark as Completed</a>
-        <!-- <a href="completejob.php?request_id=<?php echo $r['request_id']?>" class="btn btn-primary">Marked as Completed</a> -->
+     	<a href="viewbill.php?requestid=<?php echo $r['request_id']?>" class="btn btn-primary">Pay Now</a>
+       <a href="completejob.php?request_id=<?php echo $r['request_id']?>" class="btn btn-primary">Marked as Completed</a>
   
 
 
