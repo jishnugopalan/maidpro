@@ -72,7 +72,7 @@ $r2=mysqli_fetch_assoc($res2);
 						<div class="card-container">
 							<!--- ".card-type" is a sprite used as a background image with associated classes for the major card types, providing x-y coordinates for the sprite --->
 							<div class="card-type"></div>
-							<input type="text" name="card number" placeholder="0000 0000 0000 0000" onkeyup="$cc.validate(event)" required=""/>
+							<input type="text" name="card number" pattern="^\d{16}$" required=""/>
 							<!-- The checkmark ".card-valid" used is a custom font from icomoon.io --->
 							<div class="card-valid"><i class="fa fa-check" aria-hidden="true"></i></div>
 						</div> 
@@ -83,7 +83,7 @@ $r2=mysqli_fetch_assoc($res2);
 							</div> 
 							<div class="cvv">
 								<aside>CVV</aside>
-								<input type="text" name="cvv" placeholder="XXX" maxlength="3" required=""/>
+								<input type="text" name="cvv" placeholder="XXX" pattern="^\d{3}$" required=""/>
 							</div> 
 							<div class="clear">	</div>		
 						</div>

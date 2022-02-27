@@ -60,7 +60,12 @@ $worker_email=$_GET['email'];
             
             <h2>About <?php echo $r['name']?></h2>
             <p>
-                
+                Gender:<?php echo $r['gender']?><br>
+                Age:<?php
+    $dob=$r['date_of_birth'];
+    $diff = (date('Y') - date('Y',strtotime($dob)));
+    echo $diff;
+?><br>
                 <?php echo $r['house']?><br>
                 <?php echo $r['place']?><br>
                 <?php
